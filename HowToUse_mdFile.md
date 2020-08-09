@@ -162,12 +162,21 @@
 
 ## 7. 주석 달기
 
+* 본문부분 : `<sup>[1](#footnote_1)</sup>`
+* 주석부분 : `<a name="footnote_1">1</a>: 마크다운은 재미있는 규칙이다.`
+
+>본문:  
 마크다운(Markdown)은 일반 텍스트 문서의 양식을 편집하는 문법
 이다.<sup>[1](#footnote_1)</sup> README 파일이나 온라인 문서, 혹은 일반 텍스트 편집기로
 문서 양식을 편집할 때 쓰인다. 마크다운을 이용해 작성된 문서는
 쉽게 HTML 등 다른 문서형태로 변환이 가능하다.<sup>[2](#footnote_2)</sup>
 
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+>공백
+
+<br><br><br><br><br>
+
 ---
-<a name="footnote_1">1</a>: 마크다운은 의외로 재미있고 마구 활용하고 싶어지는 규칙입니다.  
+>주석:  
+<a name="footnote_1">1</a>: 마크다운은 재미있는 규칙이다.  
 <a name="footnote_2">2</a>: [위키백과 마크다운 문서](http://ko.wikipedia.org/wiki/마크다운)
