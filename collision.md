@@ -166,7 +166,7 @@ collisionCircleRect(rect_B, circle_A)
 1. function distanceSqr(x1, y1, x2, y2)  
 네 귀퉁이 체크 시 사각형의 정점이 원 내부에 포함되는지 판단하기 위한 거리 측정용  
 사각형의 정점과 원의 중점과의 거리의 제곱 값을 계산하여 리턴  
-(x1, y1) : 원에서 제일 가까운 사각형의 정점
+(x1, y1) : 원에서 제일 가까운 사각형의 정점  
 (x2, y2) : 원의 중점
 2. 판정할 사각형보다 상하좌우 각각 원의 반지름 r 만큼 확장한 사각형 안에 원의 중심 좌표가 포함되면 충돌 가능성이 있다.
 3. 2의 조건을 만족해도 원의 중심 좌표가 원래 사각형의 밖, 확장된 사각형의 각 모퉁이에 있고 또한 원이 사각형의 가장 가까운 정점을 내부에 포함하지 않을 때는 충돌하지 않는다.  
@@ -179,6 +179,43 @@ collisionCircleRect(rect_B, circle_A)
 ---
 
 ## 3. 가늘고 긴 물체와 원과의 충돌 판정
+
+### 구조체
+```
+var circleA = {x: 0, y: 0, r: 0};
+var lineSegmentB = {x: 0, y: 0, vx: 0, vy: 0, r: 0, newVX: 0};
+```
+
+### 함수 collisionCircleLineSegment
+
+```
+function checkHit(pcrCircle, prcRectCircle) {
+	var nResult = false, dx, dy, t, mx, my, ar, fDistSqr, fRate;
+    
+    fRate = prcRectCircle.newVX / prcRectCircle.vx;
+
+	dx = pcrCircle.x - prcRectCircle.x;				// ⊿ｘ
+	dy = pcrCircle.y - prcRectCircle.y;				// ⊿ｙ
+	t = (prcRectCircle.vx * dx + prcRectCircle.vy * dy) / (prcRectCircle.vx * prcRectCircle.vx + prcRectCircle.vy * prcRectCircle.vy);
+	if (t < 0) { t = 0; }					     // t의 하한
+	if (t > fRate) { t = fRate;	}					 // t의 상한 (1이 정상이나 도형그리기에 오차를 보정한 값)
+	mx = prcRectCircle.vx * t + prcRectCircle.x;	// 최소 위치가 되는 좌표
+	my = prcRectCircle.vy * t + prcRectCircle.y;
+	fDistSqr = (mx - pcrCircle.x) * (mx - pcrCircle.x) + (my - pcrCircle.y) * (my - pcrCircle.y);	// 거리의 제곱 
+	ar = pcrCircle.r + prcRectCircle.r;
+	if (fDistSqr < ar * ar) {						// 제곱인 채로 비교 
+		nResult = true;
+	}
+    
+	return nResult;
+}
+```
+
+### 함수 call
+```
+```
+
+### 설명
 
 ---
 
