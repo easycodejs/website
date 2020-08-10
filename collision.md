@@ -183,8 +183,16 @@ collisionCircleRect(rect_B, circle_A)
 ### 구조체
 ```
 var circleA = {x: 0, y: 0, r: 0};
+```
+- (x, y) : 원의 중점 좌표
+- r : 원의 반지름
+```
 var rectCircleB = {x: 0, y: 0, vx: 0, vy: 0, r: 0, newVX: 0};
 ```
+- rectCircleB를 선분으로 보고 양 끝에 반원을 형성한다고 보면 
+- (x, y) : 선분 rectCircleB 벡터 (vx, vy)의 출발 좌표
+- r : 선분의 굵기의 반, 선분 끝 원의 반지름
+- newVX : 회전된 선분 rectCircleB의 새 벡터의 vx 값
 
 ### 함수 collisionCircle_RectCircle
 
@@ -216,6 +224,9 @@ function collisionCircle_RectCircle(pCircle, pRectCircle) {
 ```
 
 ### 설명
+
+- dx : 원의 중점의 x 값과 선분 rectCircleB 벡터의 출발점의 x 값의 차이
+- dy : 원의 중점의 y 값과 선분 rectCircleB 벡터의 출발점의 y 값의 차이
 
 ---
 
