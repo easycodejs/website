@@ -237,3 +237,6 @@ function collisionCircle_RectCircle(pCircle, pRectCircle) {
 
 ## 5. 3D 충돌 판정 이야기
 
+
+$$c^2 = \sqrt{a^2 + b^2}$$
+
