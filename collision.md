@@ -239,4 +239,5 @@ function collisionCircle_RectCircle(pCircle, pRectCircle) {
 
 
 $$c^2 = \sqrt{a^2 + b^2}$$
+$$x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
 
